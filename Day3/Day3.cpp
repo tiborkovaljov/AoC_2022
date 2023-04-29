@@ -57,7 +57,32 @@ int main()
 
     /* PART 2 */
 
+    total_sum = 0;
+    int j = 3;
+    for(int i = 0; i < data.size(); i += 3) {
+        vector<string> rucksacks;
+        for(int k = i; k < j; k++) {
+            if(k < data.size()) {
+                rucksacks.push_back(data[k]);
+            }
+        }
+        j += 3;
 
+        for(char c : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz") {
+            bool found_in_all_rucksacks = true;
+            for(const string& rucksack : rucksacks) {
+                if(rucksack.find(c) == string::npos) {
+                    found_in_all_rucksacks = false;
+                    break;
+                }
+            }
+            if(found_in_all_rucksacks) {
+                total_sum += letter_priority[c];
+            }
+        }
+    }
+
+    cout << total_sum;
 
     return 0;
 }
