@@ -4,8 +4,10 @@
 #include <map>
 
 
-void part1_day2()
+int main()
 {
+    /* PART 1 */
+
     // 1. -> Bereme informace z inputu + tvorba vektoru, ve kterem budou ulozeny informace z inputu
     // 2. -> Tvorba slovniku, ktery bude drzet informace o bodovani
     // 3. -> Tvorba promenne pro scitani bodu
@@ -13,7 +15,7 @@ void part1_day2()
     // 5. -> Vypsani vysledku
 
     // 1.
-    std::fstream input("C:\\Users\\Tibor\\Desktop\\drawer\\gss\\aoc2022\\aoc2022_cpp\\Day2\\day2.in");
+    std::fstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day2\day2.in)");
     std::vector<std::string> info;
     std::string line;
     while(std::getline(input, line)) {
@@ -39,17 +41,16 @@ void part1_day2()
     int points = 0;
 
     // 4.
-    for(std::string game : info) {
+    for(const std::string& game : info) {
         points += posibilities[game];
     }
 
     // 5.
     std::cout << points << '\n';
-}
 
 
-void part2_day2()
-{
+    /* PART 2 */
+
     // 1. -> Bereme informace z inputu + tvorba vektoru, ve kterem budou ulozeny informace z inputu
     // 2. -> Tvorba predelaneho slovniku, ktery bude drzet informace o bodovani
     // 3. -> Tvorba promenne pro scitani bodu
@@ -57,9 +58,9 @@ void part2_day2()
     // 5. -> Vypsani vusledku
 
     // 1.
-    std::fstream input("C:\\Users\\Tibor\\Desktop\\drawer\\gss\\aoc2022\\aoc2022_cpp\\Day2\\day2.in");
-    std::vector<std::string> info;
-    std::string line;
+    std::fstream input2(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day2\day2.in)");
+    std::vector<std::string> info2;
+    std::string line2;
     while(std::getline(input, line)) {
         info.push_back(line);
     }
@@ -67,7 +68,7 @@ void part2_day2()
     input.close();
 
     // 2.
-    std::map<std::string, int> posibilities;
+    std::map<std::string, int> posibilities2;
 
     // lost - 0, draw - 3, won - 6 points
 
@@ -85,17 +86,10 @@ void part2_day2()
     int points2 = 0;
 
     // 4.
-    for(std::string game : info) {
+    for(const std::string& game : info) {
         points2 += posibilities[game];
     }
 
     // 5.
     std::cout << points2 << '\n';
-}
-
-
-int main()
-{
-    part1_day2();
-    part2_day2();
 }

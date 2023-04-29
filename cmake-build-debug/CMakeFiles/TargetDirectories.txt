@@ -1,3 +1,6 @@
-C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug/CMakeFiles/aoc2022_cpp.dir
+C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug/CMakeFiles/main.dir
+C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug/CMakeFiles/day1.dir
+C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug/CMakeFiles/day2.dir
+C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug/CMakeFiles/day3.dir
 C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug/CMakeFiles/edit_cache.dir
 C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug/CMakeFiles/rebuild_cache.dir

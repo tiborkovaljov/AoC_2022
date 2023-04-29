@@ -4,14 +4,16 @@
 #include <algorithm>
 
 
-void part1_day1()
+int main()
 {
+    /* PART 1 */
+
     // 1. -> Bereme informace z inputu + tvorba vektoru, ve kterem budou ulozeny informace z inputu
     // 2. -> Hledani elfa, ktery nese nejvice kalorii (int max)
     // 3. -> Vyspani souctu kalorii tohoto elfa
 
     // 1.
-    std::fstream input("C:\\Users\\Tibor\\Desktop\\drawer\\gss\\aoc2022\\aoc2022_cpp\\Day1\\day1.in");
+    std::fstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day1\day1.in)");
     std::vector<std::string> info;
     std::string line;
     while(std::getline(input, line)) {
@@ -24,8 +26,8 @@ void part1_day1()
     int max = 0;
     int elf = 0;
 
-    for(std::string item : info) {
-        if(item == "") {
+    for(const std::string& item : info) {
+        if(item.empty()) {
             elf = 0;
         }
         else {
@@ -39,11 +41,10 @@ void part1_day1()
 
     // 3.
     std::cout << max << '\n';
-}
 
 
-void part2_day1()
-{
+    /* PART 2 */
+
     // 1. -> Bereme informace z inputu + tvorba vektoru, ve kterem budou ulozeny informace z inputu
     // 2. -> Tvorba vektoru k drzeni poscitanych kalorii elfu
     // 3. -> Projdeme info, poscitame kalorie elfu a pushneme kazdeho elfa do naseho vektoru
@@ -51,9 +52,9 @@ void part2_day1()
     // 5. -> Tyto vysledky poscitame a toto je nas vysledek
 
     // 1.
-    std::fstream input("C:\\Users\\Tibor\\Desktop\\drawer\\gss\\aoc2022\\aoc2022_cpp\\Day1\\day1.in");
-    std::vector<std::string> info;
-    std::string line;
+    std::fstream input2(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day1\day1.in)");
+    std::vector<std::string> info2;
+    std::string line2;
     while(std::getline(input, line)) {
         info.push_back(line);
     }
@@ -61,33 +62,26 @@ void part2_day1()
     input.close();
 
     // 2.
-    std::vector<int> elfs;
+    std::vector<int> elfs2;
 
     // 3.
-    int elf = 0;
-    for(std::string item : info) {
-        if(item == "") {
-            elf = 0;
+    int elf2 = 0;
+    for(const std::string& item : info) {
+        if(item.empty()) {
+            elf2 = 0;
         }
         else {
             int num = stoi(item);
-            elf += num;
+            elf2 += num;
         }
-        elfs.emplace_back(elf);
+        elfs2.emplace_back(elf2);
     }
 
     // 4.
-    std::sort(elfs.begin(), elfs.end());
+    std::sort(elfs2.begin(), elfs2.end());
 
     // 5.
-    int top_three = elfs[elfs.size() - 1] + elfs[elfs.size() - 2] + elfs[elfs.size() - 3];
+    int top_three = elfs2[elfs2.size() - 1] + elfs2[elfs2.size() - 2] + elfs2[elfs2.size() - 3];
 
     std::cout << top_three << '\n';
-}
-
-
-int main()
-{
-    part1_day1();
-    part2_day1();
 }
