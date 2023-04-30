@@ -41,12 +41,6 @@ int main()
 
     /* PART 2 */
 
-    // 1. -> Bereme informace z inputu + tvorba vektoru, ve kterem budou ulozeny informace z inputu
-    // 2. -> Tvorba vektoru k drzeni poscitanych kalorii elfu
-    // 3. -> Projdeme info, poscitame kalorie elfu a pushneme kazdeho elfa do naseho vektoru
-    // 4. -> sortneme vektor od nejmensiho po nejvetsi
-    // 5. -> Tyto vysledky poscitame a toto je nas vysledek
-
     // 1.
     std::fstream input2(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day1\day1.in)");
     std::vector<std::string> info2;
