@@ -8,9 +8,6 @@ using namespace std;
 
 int main()
 {
-    // 1. -> bereme info z inputu
-    // 2. ->
-
     ifstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_py\day6\day6.in)");
     string info;
     getline(input, info);

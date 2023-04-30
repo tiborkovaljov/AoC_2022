@@ -12,12 +12,6 @@ int main()
 {
     /* PART 1 */
 
-    // 1. -> Bereme informace z inputu, tvorba vektoru, ve kterem budou nase informace
-    // 2. -> promenna, ktera bude drzet finalni soucet hodnot
-    // 3. -> Prirazujeme ciselnou hodnotu(prioritu k pismenum)
-    // 4. -> rozdeleni rucksacku na pulky, nasledna na levou a pravou pulku
-    // 5. -> dle podminky pricteni hodnoty pismena k finalni promenne
-
     // 1.
     ifstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day3\day3.in)");
     string line;

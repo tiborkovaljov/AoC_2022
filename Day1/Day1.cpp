@@ -8,10 +8,6 @@ int main()
 {
     /* PART 1 */
 
-    // 1. -> Bereme informace z inputu + tvorba vektoru, ve kterem budou ulozeny informace z inputu
-    // 2. -> Hledani elfa, ktery nese nejvice kalorii (int max)
-    // 3. -> Vyspani souctu kalorii tohoto elfa
-
     // 1.
     std::fstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day1\day1.in)");
     std::vector<std::string> info;

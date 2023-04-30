@@ -8,12 +8,6 @@ int main()
 {
     /* PART 1 */
 
-    // 1. -> Bereme informace z inputu + tvorba vektoru, ve kterem budou ulozeny informace z inputu
-    // 2. -> Tvorba slovniku, ktery bude drzet informace o bodovani
-    // 3. -> Tvorba promenne pro scitani bodu
-    // 4. -> For cyklem projdeme info z inputu a dle toho, co tam bude, pricteme dane body k promenne
-    // 5. -> Vypsani vysledku
-
     // 1.
     std::fstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day2\day2.in)");
     std::vector<std::string> info;
@@ -50,12 +44,6 @@ int main()
 
 
     /* PART 2 */
-
-    // 1. -> Bereme informace z inputu + tvorba vektoru, ve kterem budou ulozeny informace z inputu
-    // 2. -> Tvorba predelaneho slovniku, ktery bude drzet informace o bodovani
-    // 3. -> Tvorba promenne pro scitani bodu
-    // 4. -> For cyklem projdeme info z inputu a dle toho, co tam bude, pricteme dane body k promenne
-    // 5. -> Vypsani vusledku
 
     // 1.
     std::fstream input2(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day2\day2.in)");
