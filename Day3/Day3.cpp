@@ -19,13 +19,13 @@ int main()
     // 5. -> dle podminky pricteni hodnoty pismena k finalni promenne
 
     // 1.
-    ifstream file(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day3\day3.in)");
+    ifstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day3\day3.in)");
     string line;
     unordered_map<char, int> letter_priority;
-    vector<string> data;
+    vector<string> info;
 
-    while (getline(file, line)) {
-        data.push_back(line);
+    while (getline(input, line)) {
+        info.push_back(line);
     }
 
     // 2.
@@ -40,7 +40,7 @@ int main()
     }
 
     // 4.
-    for(const auto& rucksack : data) {
+    for(const auto& rucksack : info) {
         auto half = rucksack.length() / 2;
         string left = rucksack.substr(0, half);
         string right = rucksack.substr(half);
@@ -58,12 +58,13 @@ int main()
     /* PART 2 */
 
     total_sum = 0;
+
     int j = 3;
-    for(int i = 0; i < data.size(); i += 3) {
+    for(int i = 0; i < info.size(); i += 3) {
         vector<string> rucksacks;
         for(int k = i; k < j; k++) {
-            if(k < data.size()) {
-                rucksacks.push_back(data[k]);
+            if(k < info.size()) {
+                rucksacks.push_back(info[k]);
             }
         }
         j += 3;

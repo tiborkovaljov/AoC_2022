@@ -8,3 +8,6 @@ add_executable(main main.cpp)
 add_executable(day1 Day1/Day1.cpp)
 add_executable(day2 Day2/Day2.cpp)
 add_executable(day3 Day3/Day3.cpp)
+add_executable(day4 Day4/Day4.cpp)
+
+add_executable(day6 Day6/Day6.cpp)

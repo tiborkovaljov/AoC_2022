@@ -172,6 +172,72 @@ build day3.exe: CXX_EXECUTABLE_LINKER__day3_Debug CMakeFiles/day3.dir/Day3/Day3.
   TARGET_IMPLIB = libday3.dll.a
   TARGET_PDB = day3.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target day4
+
+
+#############################################
+# Order-only phony target for day4
+
+build cmake_object_order_depends_target_day4: phony || CMakeFiles/day4.dir
+
+build CMakeFiles/day4.dir/Day4/Day4.cpp.obj: CXX_COMPILER__day4_Debug C$:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/Day4/Day4.cpp || cmake_object_order_depends_target_day4
+  DEP_FILE = CMakeFiles\day4.dir\Day4\Day4.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\day4.dir
+  OBJECT_FILE_DIR = CMakeFiles\day4.dir\Day4
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day4
+
+
+#############################################
+# Link the executable day4.exe
+
+build day4.exe: CXX_EXECUTABLE_LINKER__day4_Debug CMakeFiles/day4.dir/Day4/Day4.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\day4.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = day4.exe
+  TARGET_IMPLIB = libday4.dll.a
+  TARGET_PDB = day4.exe.dbg
+
+# =============================================================================
+# Object build statements for EXECUTABLE target day6
+
+
+#############################################
+# Order-only phony target for day6
+
+build cmake_object_order_depends_target_day6: phony || CMakeFiles/day6.dir
+
+build CMakeFiles/day6.dir/Day6/Day6.cpp.obj: CXX_COMPILER__day6_Debug C$:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/Day6/Day6.cpp || cmake_object_order_depends_target_day6
+  DEP_FILE = CMakeFiles\day6.dir\Day6\Day6.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\day6.dir
+  OBJECT_FILE_DIR = CMakeFiles\day6.dir\Day6
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day6
+
+
+#############################################
+# Link the executable day6.exe
+
+build day6.exe: CXX_EXECUTABLE_LINKER__day6_Debug CMakeFiles/day6.dir/Day6/Day6.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\day6.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = day6.exe
+  TARGET_IMPLIB = libday6.dll.a
+  TARGET_PDB = day6.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -204,6 +270,10 @@ build day2: phony day2.exe
 
 build day3: phony day3.exe
 
+build day4: phony day4.exe
+
+build day6: phony day6.exe
+
 build main: phony main.exe
 
 # =============================================================================
@@ -214,7 +284,7 @@ build main: phony main.exe
 #############################################
 # Folder: C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug
 
-build all: phony main.exe day1.exe day2.exe day3.exe
+build all: phony main.exe day1.exe day2.exe day3.exe day4.exe day6.exe
 
 # =============================================================================
 # Built-in targets
