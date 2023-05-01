@@ -25,26 +25,26 @@ int main()
     int ans = 0;
     int ans2 = 0;
 
-    for (string& line : data) {
+    for (string& elves : data) {
         string one, two;
-        size_t comma_pos = line.find(',');
-        one = line.substr(0, comma_pos);
-        two = line.substr(comma_pos + 1);
-//        cout << one << " " << two << endl;
-        int s1, e1, s2, e2;
-        comma_pos = one.find('-');
-        s1 = stoi(one.substr(0, comma_pos));
-        e1 = stoi(one.substr(comma_pos + 1));
-        comma_pos = two.find('-');
-        s2 = stoi(two.substr(0, comma_pos));
-        e2 = stoi(two.substr(comma_pos + 1));
-        if ((s1 <= s2 && e2 <= e1) || (s2 <= s1 && e1 <= e2)) {
+        size_t position = elves.find(',');
+        one = elves.substr(0, position);
+        two = elves.substr(position + 1);
+        // cout << one << " " << two << endl;
+        int a1, b1, a2, b2;
+        position = one.find('-');
+        a1 = stoi(one.substr(0, position));
+        a2 = stoi(one.substr(position + 1));
+        position = two.find('-');
+        b1 = stoi(two.substr(0, position));
+        b2 = stoi(two.substr(position + 1));
+        if ((a1 <= b1 && b2 <= a2) || (b1 <= a1 && a2 <= b2)) {
             ans += 1;
         }
 
         /* PART 2 */
 
-        if(!(e1 < s2 || s1 > e2)) {
+        if(!(a2 < b1 || a1 > b2)) {
             ans2 += 1;
         }
 
