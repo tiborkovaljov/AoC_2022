@@ -51,8 +51,10 @@ int main()
 
     /* PART 2 */
 
+    // 1.
     total_sum = 0;
 
+    // 2.
     int j = 3;
     for(int i = 0; i < info.size(); i += 3) {
         vector<string> rucksacks;
@@ -63,6 +65,7 @@ int main()
         }
         j += 3;
 
+        // 3.
         for(char c : "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz") {
             bool found_in_all_rucksacks = true;
             for(const string& rucksack : rucksacks) {
@@ -71,6 +74,7 @@ int main()
                     break;
                 }
             }
+            // 4.
             if(found_in_all_rucksacks) {
                 total_sum += letter_priority[c];
             }

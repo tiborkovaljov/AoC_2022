@@ -3,18 +3,17 @@
 #include <string>
 #include <vector>
 
-using namespace std;
-
 
 int main()
 {
     /* PART 1 */
 
-    ifstream file(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day4\day4.in)");
-    vector<string> data;
-    string line;
-    while (getline(file, line)) {
-        data.push_back(line);
+    // 1.
+    std::ifstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day4\day4.in)");
+    std::vector<std::string> info;
+    std::string line;
+    while(getline(input, line)) {
+        info.push_back(line);
     }
 
 //    cout << "Data: " << endl;
@@ -22,11 +21,13 @@ int main()
 //        cout << s << endl;
 //    }
 
+    // 2.
     int ans = 0;
     int ans2 = 0;
 
-    for (string& elves : data) {
-        string one, two;
+    // 3.
+    for(std::string& elves : info) {
+        std::string one, two;
         size_t position = elves.find(',');
         one = elves.substr(0, position);
         two = elves.substr(position + 1);
@@ -38,20 +39,22 @@ int main()
         position = two.find('-');
         b1 = stoi(two.substr(0, position));
         b2 = stoi(two.substr(position + 1));
+        // 4.
         if ((a1 <= b1 && b2 <= a2) || (b1 <= a1 && a2 <= b2)) {
             ans += 1;
         }
 
         /* PART 2 */
 
+        // 1.
         if(!(a2 < b1 || a1 > b2)) {
             ans2 += 1;
         }
 
     }
 
-    cout << ans << '\n';
-    cout << ans2 << '\n';
+    std::cout << ans << '\n';
+    std::cout << ans2 << '\n';
 
     return 0;
 }

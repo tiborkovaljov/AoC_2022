@@ -3,24 +3,22 @@
 #include <fstream>
 #include <unordered_set>
 
-using namespace std;
-
 
 int main()
 {
-    ifstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_py\day6\day6.in)");
-    string info;
+    std::ifstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_py\day6\day6.in)");
+    std::string info;
     getline(input, info);
 
     /* PART 1 */
 
     for(int i = 4; i < info.size(); i++) {
-        unordered_set<char> s;
+        std::unordered_set<char> s;
         for(int j = i - 4; j < i; j++) {
             s.insert(info[j]);
         }
         if(s.size() == 4) {
-            cout << i << '\n';
+            std::cout << i << '\n';
             break;
         }
     }
@@ -28,12 +26,12 @@ int main()
     /* PART 2 */
 
     for(int i = 14; i < info.size(); i++) {
-        unordered_set<char> s;
+        std::unordered_set<char> s;
         for(int j = i - 14; j < i; j++) {
             s.insert(info[j]);
         }
         if(s.size() == 14) {
-            cout << i << '\n';
+            std::cout << i << '\n';
             break;
         }
     }

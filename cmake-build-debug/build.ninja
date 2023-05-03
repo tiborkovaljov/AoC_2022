@@ -206,6 +206,39 @@ build day4.exe: CXX_EXECUTABLE_LINKER__day4_Debug CMakeFiles/day4.dir/Day4/Day4.
   TARGET_PDB = day4.exe.dbg
 
 # =============================================================================
+# Object build statements for EXECUTABLE target day5
+
+
+#############################################
+# Order-only phony target for day5
+
+build cmake_object_order_depends_target_day5: phony || CMakeFiles/day5.dir
+
+build CMakeFiles/day5.dir/Day5/Day5.cpp.obj: CXX_COMPILER__day5_Debug C$:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/Day5/Day5.cpp || cmake_object_order_depends_target_day5
+  DEP_FILE = CMakeFiles\day5.dir\Day5\Day5.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\day5.dir
+  OBJECT_FILE_DIR = CMakeFiles\day5.dir\Day5
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day5
+
+
+#############################################
+# Link the executable day5.exe
+
+build day5.exe: CXX_EXECUTABLE_LINKER__day5_Debug CMakeFiles/day5.dir/Day5/Day5.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\day5.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = day5.exe
+  TARGET_IMPLIB = libday5.dll.a
+  TARGET_PDB = day5.exe.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target day6
 
 
@@ -272,6 +305,8 @@ build day3: phony day3.exe
 
 build day4: phony day4.exe
 
+build day5: phony day5.exe
+
 build day6: phony day6.exe
 
 build main: phony main.exe
@@ -284,7 +319,7 @@ build main: phony main.exe
 #############################################
 # Folder: C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug
 
-build all: phony main.exe day1.exe day2.exe day3.exe day4.exe day6.exe
+build all: phony main.exe day1.exe day2.exe day3.exe day4.exe day5.exe day6.exe
 
 # =============================================================================
 # Built-in targets
