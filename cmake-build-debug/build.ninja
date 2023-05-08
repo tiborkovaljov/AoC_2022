@@ -304,6 +304,39 @@ build day7.exe: CXX_EXECUTABLE_LINKER__day7_Debug CMakeFiles/day7.dir/Day7/Day7.
   TARGET_IMPLIB = libday7.dll.a
   TARGET_PDB = day7.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target day8
+
+
+#############################################
+# Order-only phony target for day8
+
+build cmake_object_order_depends_target_day8: phony || CMakeFiles/day8.dir
+
+build CMakeFiles/day8.dir/Day8/Day8.cpp.obj: CXX_COMPILER__day8_Debug C$:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/Day8/Day8.cpp || cmake_object_order_depends_target_day8
+  DEP_FILE = CMakeFiles\day8.dir\Day8\Day8.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\day8.dir
+  OBJECT_FILE_DIR = CMakeFiles\day8.dir\Day8
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day8
+
+
+#############################################
+# Link the executable day8.exe
+
+build day8.exe: CXX_EXECUTABLE_LINKER__day8_Debug CMakeFiles/day8.dir/Day8/Day8.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\day8.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = day8.exe
+  TARGET_IMPLIB = libday8.dll.a
+  TARGET_PDB = day8.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -344,6 +377,8 @@ build day6: phony day6.exe
 
 build day7: phony day7.exe
 
+build day8: phony day8.exe
+
 build main: phony main.exe
 
 # =============================================================================
@@ -354,7 +389,7 @@ build main: phony main.exe
 #############################################
 # Folder: C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug
 
-build all: phony main.exe day1.exe day2.exe day3.exe day4.exe day5.exe day6.exe day7.exe
+build all: phony main.exe day1.exe day2.exe day3.exe day4.exe day5.exe day6.exe day7.exe day8.exe
 
 # =============================================================================
 # Built-in targets

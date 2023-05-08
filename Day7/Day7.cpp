@@ -20,15 +20,15 @@ int main()
     dirs["/home"] = 0;
 
     for(const auto& command : commands) {
-        if (command[0] == '$') {
-            if (command.substr(2, 2) == "ls") {
+        if(command[0] == '$') {
+            if(command.substr(2, 2) == "ls") {
                 // Do nothing when listing directories or files
             }
-            else if (command.substr(2, 2) == "cd") {
-                if (command.substr(5, 1) == "/") {
+            else if(command.substr(2, 2) == "cd") {
+                if(command.substr(5, 1) == "/") {
                     path = "/home";
                 }
-                else if (command.substr(5, 2) == "..") {
+                else if(command.substr(5, 2) == "..") {
                     path = path.substr(0, path.rfind('/'));
                 }
                 else {
