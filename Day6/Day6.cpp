@@ -25,14 +25,25 @@ int main()
 
     /* PART 2 */
 
-    for(int i = 14; i < info.size(); i++) {
-        std::unordered_set<char> s;
-        for(int j = i - 14; j < i; j++) {
-            s.insert(info[j]);
-        }
-        if(s.size() == 14) {
+    int n = info.size();
+    for (int i = 14; i < n; i++) {
+        std::unordered_set<char> s(info.begin() + i - 14, info.begin() + i);
+        if (s.size() == 14) {
             std::cout << i << '\n';
             break;
         }
     }
+
+//    for(int i = 14; i < info.size(); i++) {
+//        std::unordered_set<char> s;
+//        for(int j = i - 14; j < i; j++) {
+//            s.insert(info[j]);
+//        }
+//        if(s.size() == 14) {
+//            std::cout << i << '\n';
+//            break;
+//        }
+//    }
+
+
 }
