@@ -28,7 +28,7 @@ int main()
     int n = info.size();
     for(int i = 14; i < n; i++) {
         std::unordered_set<char> s(info.begin() + i - 14, info.begin() + i);
-        if (s.size() == 14) {
+        if(s.size() == 14) {
             std::cout << i << '\n';
             break;
         }
@@ -44,6 +44,5 @@ int main()
 //            break;
 //        }
 //    }
-
 
 }

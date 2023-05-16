@@ -57,7 +57,7 @@ int main()
     std::vector<int> valid_dirs;
 
     for(const auto& dir : dirs) {
-        if (dir.second <= 100000) {
+        if(dir.second <= 100000) {
             total += dir.second;
         }
         if(limit <= dir.second) {

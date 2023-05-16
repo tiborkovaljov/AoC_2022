@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 
+/* COMPLETED */
 
 int main()
 {
