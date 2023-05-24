@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "day2.exe"
+			"path" : "day3.exe"
 		},
 		{
-			"path" : "day2.pdb"
+			"path" : "day3.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "day2::@6890427a1f51a3e7e1df",
+	"id" : "day3::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -76,8 +76,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "day2",
-	"nameOnDisk" : "day2.exe",
+	"name" : "day3",
+	"nameOnDisk" : "day3.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -98,7 +98,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "Day2/Day2.cpp",
+			"path" : "Day3/Day3.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

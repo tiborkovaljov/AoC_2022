@@ -4,7 +4,6 @@ project(aoc2022_cpp)
 set(CMAKE_CXX_STANDARD 17)
 
 
-add_executable(main main.cpp)
 add_executable(day1 Day1/Day1.cpp)
 add_executable(day2 Day2/Day2.cpp)
 add_executable(day3 Day3/Day3.cpp)

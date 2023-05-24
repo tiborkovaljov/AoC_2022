@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "main.exe"
+			"path" : "day9.exe"
 		},
 		{
-			"path" : "main.pdb"
+			"path" : "day9.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -27,7 +27,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 7,
+				"line" : 15,
 				"parent" : 0
 			}
 		]
@@ -56,7 +56,7 @@
 			]
 		}
 	],
-	"id" : "main::@6890427a1f51a3e7e1df",
+	"id" : "day9::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -76,8 +76,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "main",
-	"nameOnDisk" : "main.exe",
+	"name" : "day9",
+	"nameOnDisk" : "day9.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -98,7 +98,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "main.cpp",
+			"path" : "Day9/Day9.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
