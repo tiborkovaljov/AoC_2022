@@ -469,6 +469,39 @@ build day20.exe: CXX_EXECUTABLE_LINKER__day20_Debug CMakeFiles/day20.dir/Day20/D
   TARGET_IMPLIB = libday20.dll.a
   TARGET_PDB = day20.exe.dbg
 
+# =============================================================================
+# Object build statements for EXECUTABLE target day25
+
+
+#############################################
+# Order-only phony target for day25
+
+build cmake_object_order_depends_target_day25: phony || CMakeFiles/day25.dir
+
+build CMakeFiles/day25.dir/Day25/Day25.cpp.obj: CXX_COMPILER__day25_Debug C$:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/Day25/Day25.cpp || cmake_object_order_depends_target_day25
+  DEP_FILE = CMakeFiles\day25.dir\Day25\Day25.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\day25.dir
+  OBJECT_FILE_DIR = CMakeFiles\day25.dir\Day25
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target day25
+
+
+#############################################
+# Link the executable day25.exe
+
+build day25.exe: CXX_EXECUTABLE_LINKER__day25_Debug CMakeFiles/day25.dir/Day25/Day25.cpp.obj
+  FLAGS = -g
+  LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\day25.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = day25.exe
+  TARGET_IMPLIB = libday25.dll.a
+  TARGET_PDB = day25.exe.dbg
+
 
 #############################################
 # Utility command for edit_cache
@@ -505,6 +538,8 @@ build day2: phony day2.exe
 
 build day20: phony day20.exe
 
+build day25: phony day25.exe
+
 build day3: phony day3.exe
 
 build day4: phony day4.exe
@@ -529,7 +564,7 @@ build day9: phony day9.exe
 #############################################
 # Folder: C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug
 
-build all: phony day1.exe day2.exe day3.exe day4.exe day5.exe day5_2.exe day6.exe day7.exe day8.exe day9.exe day10.exe day18.exe day20.exe
+build all: phony day1.exe day2.exe day3.exe day4.exe day5.exe day5_2.exe day6.exe day7.exe day8.exe day9.exe day10.exe day18.exe day20.exe day25.exe
 
 # =============================================================================
 # Built-in targets
