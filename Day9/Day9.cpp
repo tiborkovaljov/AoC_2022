@@ -19,12 +19,10 @@ std::vector<std::string> splitString(const std::string& str, char delimiter)
     return tokens;
 }
 
-
 bool touching(int x1, int y1, int x2, int y2)
 {
     return std::abs(x1 - x2) <= 1 && std::abs(y1 - y2) <= 1;
 }
-
 
 void move(int dx, int dy, int& hx, int& hy, int& tx, int& ty, std::set<std::pair<int, int>>& tail_visited)
 {

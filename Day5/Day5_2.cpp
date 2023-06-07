@@ -85,10 +85,17 @@ int main()
         auto from = std::stoi(tokens[3]) - 1;
         auto to = std::stoi(tokens[5]) - 1;
 
+        auto crates = std::vector<char>{};
         while(count-- > 0)
         {
             auto crate = stacks[from].top();
             stacks[from].pop();
+            crates.emplace_back(crate);
+        }
+
+        for (auto it = crates.rbegin(); it != crates.rend(); ++it)
+        {
+            auto crate = *it;
             stacks[to].push(crate);
         }
     }
