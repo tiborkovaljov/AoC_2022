@@ -43,8 +43,7 @@ int main()
     auto input = ReadAllLinesInFile("C:\\Users\\Tibor\\Desktop\\drawer\\gss\\aoc2022\\aoc2022_cpp\\Day5\\day5.in");
 
     auto blankIndex = -1;
-    for(auto i = 0; i < input.size(); ++i)
-    {
+    for(auto i = 0; i < input.size(); ++i) {
         if(input[i].size() == 0)
         {
             blankIndex = i;
@@ -54,20 +53,16 @@ int main()
 
     auto stacks = std::vector<std::stack<char>>{};
     const auto& stackLabels = input[blankIndex - 1];
-    for(auto i = 0; i < stackLabels.size(); ++i)
-    {
-        if (stackLabels[i] == ' ')
-        {
+    for(auto i = 0; i < stackLabels.size(); ++i) {
+        if (stackLabels[i] == ' ') {
             continue;
         }
 
         auto currentStack = std::stack<char>{};
-        for(auto lineIndex = blankIndex - 2; lineIndex >= 0; --lineIndex)
-        {
+        for(auto lineIndex = blankIndex - 2; lineIndex >= 0; --lineIndex) {
             const auto& line = input[lineIndex];
             const auto& crate = line[i];
-            if (crate == ' ')
-            {
+            if (crate == ' ') {
                 break;
             }
 
@@ -77,16 +72,14 @@ int main()
         stacks.emplace_back(currentStack);
     }
 
-    for(auto i = blankIndex + 1; i < input.size(); ++i)
-    {
+    for(auto i = blankIndex + 1; i < input.size(); ++i) {
         const auto& line = input[i];
         auto tokens = SplitString(line, " ");
         auto count = std::stoi(tokens[1]);
         auto from = std::stoi(tokens[3]) - 1;
         auto to = std::stoi(tokens[5]) - 1;
 
-        while(count-- > 0)
-        {
+        while(count-- > 0) {
             auto crate = stacks[from].top();
             stacks[from].pop();
             stacks[to].push(crate);
@@ -94,8 +87,7 @@ int main()
     }
 
     auto output = std::stringstream{};
-    for(const auto& currentStack : stacks)
-    {
+    for(const auto& currentStack : stacks) {
         output << currentStack.top();
     }
 
