@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp
+# Install script for directory: C:/Users/Tibor/Desktop/drawer/gss/AoC/aoc2022/aoc2022_cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Tibor/Desktop/drawer/gss/aoc2022/aoc2022_cpp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Tibor/Desktop/drawer/gss/AoC/aoc2022/aoc2022_cpp/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
