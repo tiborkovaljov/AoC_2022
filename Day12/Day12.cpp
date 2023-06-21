@@ -4,6 +4,7 @@
 
 
 int height(char s);
+std::vector<std::pair<int, int>> neighbours(int i, int j, int rows, int cols, std::vector<std::vector<char>>);
 
 
 int main()
@@ -59,4 +60,31 @@ int height(char s)
         return 25;
     }
     return -1;
+}
+
+
+std::vector<std::pair<int, int>> neighbours(int i, int j, int rows, int cols, std::vector<std::vector<char>> grid)
+{
+    std::vector<std::pair<int, int>> result;
+    std::vector<std::vector<int>> directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+    for(const auto& direction: directions)
+    {
+        int di = direction[0];
+        int dj = direction[1];
+        int ii = i + di;
+        int jj = j + dj;
+
+        if(!(0 == ii && ii < cols && 0 <= jj && jj < rows))
+        {
+            continue;
+        }
+
+        if(height(grid[ii][jj]) <= height(grid[i][j]) + 1)
+        {
+            result.push_back(std::make_pair(ii, jj));
+        }
+    }
+
+    return result;
 }
