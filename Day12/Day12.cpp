@@ -3,8 +3,10 @@
 #include <fstream>
 
 
-int height(char s);
-std::vector<std::pair<int, int>> neighbours(int i, int j, int rows, int cols, std::vector<std::vector<char>>);
+struct Coord {
+    int x = 0;
+    int y = 0;
+};
 
 
 int main()
@@ -12,6 +14,7 @@ int main()
     std::ifstream input("C:\\Users\\Tibor\\Desktop\\drawer\\gss\\AoC\\aoc2022\\aoc2022_cpp\\Day12\\day12.in");
     std::string line;
     std::vector<std::string> data;
+
     while(std::getline(input, line))
     {
         data.push_back(line);
@@ -22,7 +25,7 @@ int main()
 
     std::vector<std::vector<char>> grid(rows, std::vector<char>(cols));
 
-    std::pair<int, int> start, end;
+    Coord start;
 
     for(int i = 0; i < rows; i++)
     {
@@ -31,60 +34,73 @@ int main()
             char c = data[i][j];
             if(c == 'S')
             {
-                start = std::make_pair(i, j);
+                start = {
+                    .x = i,
+                    .y = j
+                };
             }
-            if(c == 'E')
-            {
-                end = std::make_pair(i, j);
-            }
+
+            grid[i][j] = data[i][j];
         }
     }
+
+    Coord player = start;
+    int player_current_score = 'a';
+
+    auto neighbour_score = [&](int x, int y) -> int {
+        if(player.x+x < 0) { return 0; }
+        if(player.y+y < 0) { return 0; }
+        if(player.x+x > rows-1) { return 0; }
+        if(player.y+y > cols-1) { return 0; }
+        if(grid[player.x+x][player.y+y] == 'A') {return 0;}
+        return grid[player.x+x][player.y+y];
+    };
+
+    int steps = 0;
+
+    auto evaluate = [&]() {
+        std::vector<std::pair<Coord, int>> dirs;
+        dirs.push_back({{1, 0}, neighbour_score(1, 0)});
+        dirs.push_back({{-1, 0}, neighbour_score(-1, 0)});
+        dirs.push_back({{0, 1}, neighbour_score(0, 1)});
+        dirs.push_back({{0, -1}, neighbour_score(0, -1)});
+
+        for(auto& dir : dirs) {
+            if(dir.second - 1 == player_current_score || (player_current_score == 'z' && grid[player.x + dir.first.x][player.y + dir.first.y] == 'E')) {
+                grid[player.x][player.y] = 'A';
+                player.x += dir.first.x;
+                player.y += dir.first.y;
+                player_current_score = dir.second;
+                steps++;
+                return;
+            }
+        }
+
+        for(auto& dir : dirs) {
+            if(dir.second == player_current_score) {
+                grid[player.x][player.y] = 'A';
+                player.x += dir.first.x;
+                player.y += dir.first.y;
+                steps++;
+                return;
+            }
+        }
+    };
+
+    while(player_current_score != 'E') {
+        for (int i = 0; i < grid.size(); i++) {
+            for (int j = 0; j < grid[i].size(); j++) {
+                std::cout << grid[i][j];
+            }
+            std::cout << std::endl;
+        }
+
+        if (player_current_score == 'A') { break; }
+        evaluate();
+        std::cout << '\n';
+    }
+
+    std::cout << steps << std::endl;
 
     return 0;
-}
-
-
-int height(char s)
-{
-    std::string aplhabetLowercase = "abcdefghijklmnopqrstuvwxyz";
-    if(aplhabetLowercase.find(s) != std::string::npos)
-    {
-        return aplhabetLowercase.find(s);
-    }
-    if(s == 'S')
-    {
-        return 0;
-    }
-    if(s == 'E')
-    {
-        return 25;
-    }
-    return -1;
-}
-
-
-std::vector<std::pair<int, int>> neighbours(int i, int j, int rows, int cols, std::vector<std::vector<char>> grid)
-{
-    std::vector<std::pair<int, int>> result;
-    std::vector<std::vector<int>> directions = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-
-    for(const auto& direction: directions)
-    {
-        int di = direction[0];
-        int dj = direction[1];
-        int ii = i + di;
-        int jj = j + dj;
-
-        if(!(0 == ii && ii < cols && 0 <= jj && jj < rows))
-        {
-            continue;
-        }
-
-        if(height(grid[ii][jj]) <= height(grid[i][j]) + 1)
-        {
-            result.push_back(std::make_pair(ii, jj));
-        }
-    }
-
-    return result;
 }
