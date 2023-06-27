@@ -1,0 +1,7 @@
+1. reading and parsing input
+2. finding S and E coords
+3. initializing directions
+4. get the visited coords
+5. queue with coords creation
+6. create inBounds lambda function
+7. search for steps

@@ -1,106 +1,212 @@
 #include <iostream>
 #include <vector>
+#include <string>
+#include <queue>
 #include <fstream>
 
 
-struct Coord {
-    int x = 0;
-    int y = 0;
+struct Coords {
+    int x;
+    int y;
+    int steps;
 };
+
+
+int part1();
+int part2();
 
 
 int main()
 {
+    std::cout << part1() << '\n';
+    std::cout << part2() << '\n';
+}
+
+
+int part1()
+{
+    /* 1 */
     std::ifstream input("C:\\Users\\Tibor\\Desktop\\drawer\\gss\\AoC\\aoc2022\\aoc2022_cpp\\Day12\\day12.in");
     std::string line;
-    std::vector<std::string> data;
+    std::vector<std::string> data = {};
 
-    while(std::getline(input, line))
+    while (std::getline(input, line))
     {
         data.push_back(line);
     }
 
-    int rows = data.size();
-    int cols = data[0].size();
+    /* 2 */
+    Coords start;
+    Coords end;
 
-    std::vector<std::vector<char>> grid(rows, std::vector<char>(cols));
-
-    Coord start;
-
-    for(int i = 0; i < rows; i++)
+    for (int i = 0; i < data.size(); i++)
     {
-        for(int j = 0; j < cols; j++)
+        for (int j = 0; j < data[i].size(); j++)
         {
-            char c = data[i][j];
-            if(c == 'S')
+            if (data[i][j] == 'S')
             {
-                start = {
-                    .x = i,
-                    .y = j
-                };
+                data[i][j] = 'a';
+                start.x = i;
+                start.y = j;
+                start.steps = 0;
             }
-
-            grid[i][j] = data[i][j];
+            if (data[i][j] == 'E')
+            {
+                data[i][j] = 'z';
+                end.x = i;
+                end.y = j;
+                end.steps = 0;
+            }
         }
     }
 
-    Coord player = start;
-    int player_current_score = 'a';
-
-    auto neighbour_score = [&](int x, int y) -> int {
-        if(player.x+x < 0) { return 0; }
-        if(player.y+y < 0) { return 0; }
-        if(player.x+x > rows-1) { return 0; }
-        if(player.y+y > cols-1) { return 0; }
-        if(grid[player.x+x][player.y+y] == 'A') {return 0;}
-        return grid[player.x+x][player.y+y];
+    /* 3 */
+    std::vector<Coords> directions = {
+        Coords{1, 0, 0},
+        Coords{0, 1, 0},
+        Coords{-1, 0, 0},
+        Coords{0, -1, 0}
     };
 
-    int steps = 0;
+    /* 4 */
+    std::vector<std::vector<bool>> visited (
+        data.size(),
+        std::vector<bool> (data[0].size(), false)
+    );
 
-    auto evaluate = [&]() {
-        std::vector<std::pair<Coord, int>> dirs;
-        dirs.push_back({{1, 0}, neighbour_score(1, 0)});
-        dirs.push_back({{-1, 0}, neighbour_score(-1, 0)});
-        dirs.push_back({{0, 1}, neighbour_score(0, 1)});
-        dirs.push_back({{0, -1}, neighbour_score(0, -1)});
+    /* 5 */
+    std::queue<Coords> coords = {};
 
-        for(auto& dir : dirs) {
-            if(dir.second - 1 == player_current_score || (player_current_score == 'z' && grid[player.x + dir.first.x][player.y + dir.first.y] == 'E')) {
-                grid[player.x][player.y] = 'A';
-                player.x += dir.first.x;
-                player.y += dir.first.y;
-                player_current_score = dir.second;
-                steps++;
-                return;
-            }
-        }
+    coords.push(start);
 
-        for(auto& dir : dirs) {
-            if(dir.second == player_current_score) {
-                grid[player.x][player.y] = 'A';
-                player.x += dir.first.x;
-                player.y += dir.first.y;
-                steps++;
-                return;
-            }
-        }
+    /* 6 */
+    auto inBounds = [&](const Coords& point) -> bool {
+        return point.x >= 0 && point.y >= 0 && point.x < data.size() && point.y < data[0].size();
     };
 
-    while(player_current_score != 'E') {
-        for (int i = 0; i < grid.size(); i++) {
-            for (int j = 0; j < grid[i].size(); j++) {
-                std::cout << grid[i][j];
-            }
-            std::cout << std::endl;
+    /* 7 */
+    while(!coords.empty())
+    {
+        Coords currentCoord = coords.front();
+        coords.pop();
+
+        if (visited[currentCoord.x][currentCoord.y]) { continue; }
+
+        visited[currentCoord.x][currentCoord.y] = true;
+
+        if (currentCoord.x == end.x && currentCoord.y == end.y) { return currentCoord.steps; }
+
+        for (const Coords& dir: directions)
+        {
+            const Coords newPoint = Coords {
+                .x = currentCoord.x + dir.x,
+                .y = currentCoord.y + dir.y,
+                .steps = currentCoord.steps + 1
+            };
+
+            if(!inBounds(newPoint)) { continue; }
+            if(visited[newPoint.x][newPoint.y]) { continue; }
+            if((data[currentCoord.x][currentCoord.y] + 1) < (data[newPoint.x][newPoint.y])) { continue; }
+
+            coords.push(newPoint);
         }
 
-        if (player_current_score == 'A') { break; }
-        evaluate();
-        std::cout << '\n';
     }
 
-    std::cout << steps << std::endl;
+    return 0;
+}
+
+
+int part2()
+{
+    /* 1 */
+    std::ifstream input("C:\\Users\\Tibor\\Desktop\\drawer\\gss\\AoC\\aoc2022\\aoc2022_cpp\\Day12\\day12.in");
+    std::string line;
+    std::vector<std::string> data = {};
+
+    while (std::getline(input, line))
+    {
+        data.push_back(line);
+    }
+
+    /* 2 */
+    Coords end;
+
+    for (int i = 0; i < data.size(); i++)
+    {
+        for (int j = 0; j < data[i].size(); j++)
+        {
+            if (data[i][j] == 'S')
+            {
+                data[i][j] = 'a';
+            }
+            if (data[i][j] == 'E')
+            {
+                data[i][j] = 'z';
+                end.x = i;
+                end.y = j;
+                end.steps = 0;
+            }
+        }
+    }
+
+    /* 3 */
+    std::vector<Coords> directions = {
+        Coords{1, 0, 0},
+        Coords{0, 1, 0},
+        Coords{-1, 0, 0},
+        Coords{0, -1, 0}
+    };
+
+    /* 4 */
+    std::vector<std::vector<bool>> visited (
+        data.size(),
+        std::vector<bool> (data[0].size(), false)
+    );
+
+    /* 5 */
+    std::queue<Coords> coords = {};
+
+    coords.push(end);
+
+    /* 6 */
+    auto inBounds = [&](const Coords& point) -> bool {
+        return point.x >= 0 && point.y >= 0 && point.x < data.size() && point.y < data[0].size();
+    };
+
+    /* 7 */
+    while(!coords.empty())
+    {
+        Coords currentCoord = coords.front();
+        coords.pop();
+
+        if (visited[currentCoord.x][currentCoord.y])
+        {
+            continue;
+        }
+
+        visited[currentCoord.x][currentCoord.y] = true;
+
+        if(data[currentCoord.x][currentCoord.y] == 'a')
+        {
+            return currentCoord.steps;
+        }
+
+        for (const Coords& dir: directions)
+        {
+            const Coords newPoint = Coords {
+                .x = currentCoord.x + dir.x,
+                .y = currentCoord.y + dir.y,
+                .steps = currentCoord.steps + 1
+            };
+
+            if(!inBounds(newPoint)) { continue; }
+            if(visited[newPoint.x][newPoint.y]) { continue; }
+            if((data[currentCoord.x][currentCoord.y]) > (data[newPoint.x][newPoint.y]) + 1) { continue; }
+
+            coords.push(newPoint);
+        }
+    }
 
     return 0;
 }
