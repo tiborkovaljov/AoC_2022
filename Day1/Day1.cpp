@@ -10,7 +10,9 @@ int main()
     std::fstream input(R"(C:\Users\Tibor\Desktop\drawer\gss\aoc2022\aoc2022_cpp\Day1\day1.in)");
     std::vector<std::string> info;
     std::string line;
-    while(std::getline(input, line)) {
+
+    while(std::getline(input, line))
+    {
         info.push_back(line);
     }
 
@@ -19,15 +21,19 @@ int main()
     int max = 0;
     int elf = 0;
 
-    for(const std::string& item : info) {
-        if(item.empty()) {
+    for(const std::string& item : info)
+    {
+        if(item.empty())
+        {
             elf = 0;
         }
-        else {
+        else
+        {
             int num = stoi(item);
             elf += num;
         }
-        if(elf > max) {
+        if(elf > max)
+        {
             max = elf;
         }
     }
@@ -38,11 +44,15 @@ int main()
     std::vector<int> elfs2;
 
     int elf2 = 0;
-    for(const std::string& item : info) {
-        if(item.empty()) {
+
+    for(const std::string& item : info)
+    {
+        if(item.empty())
+        {
             elf2 = 0;
         }
-        else {
+        else
+        {
             int num = stoi(item);
             elf2 += num;
         }

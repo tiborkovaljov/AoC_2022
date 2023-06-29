@@ -16,11 +16,6 @@ int main()
         info.push_back(line);
     }
 
-//    cout << "Data: " << endl;
-//    for (string& s : data) {
-//        cout << s << endl;
-//    }
-
     // 2.
     int ans = 0;
     int ans2 = 0;
@@ -31,7 +26,6 @@ int main()
         size_t position = elves.find(',');
         one = elves.substr(0, position);
         two = elves.substr(position + 1);
-        // cout << one << " " << two << endl;
         int a1, b1, a2, b2;
         position = one.find('-');
         a1 = stoi(one.substr(0, position));

@@ -13,7 +13,8 @@ std::vector<std::string> splitString(const std::string& str, char delimiter)
     std::vector<std::string> tokens;
     std::string token;
     std::istringstream tokenStream(str);
-    while(std::getline(tokenStream, token, delimiter)) {
+    while(std::getline(tokenStream, token, delimiter))
+    {
         tokens.push_back(token);
     }
     return tokens;
@@ -29,7 +30,8 @@ void move(int dx, int dy, int& hx, int& hy, int& tx, int& ty, std::set<std::pair
     hx += dx;
     hy += dy;
 
-    if(!touching(hx, hy, tx, ty)) {
+    if(!touching(hx, hy, tx, ty))
+    {
         int sign_x = (hx == tx) ? 0 : (hx - tx) / std::abs(hx - tx);
         int sign_y = (hy == ty) ? 0 : (hy - ty) / std::abs(hy - ty);
 
@@ -47,7 +49,8 @@ int main()
     std::string line2;
     std::vector<std::string> lines;
 
-    while(std::getline(file, line2)) {
+    while(std::getline(file, line2))
+    {
         lines.push_back(line2);
     }
 
@@ -63,7 +66,8 @@ int main()
             {"D", {0, -1}}
     };
 
-    for(const std::string& line : lines) {
+    for(const std::string& line : lines)
+    {
         std::vector<std::string> parts = splitString(line, ' ');
         std::string op = parts[0];
         int amount = std::stoi(parts[1]);
@@ -71,7 +75,8 @@ int main()
         int dx = direction.first;
         int dy = direction.second;
 
-        for(int i = 0; i < amount; i++) {
+        for(int i = 0; i < amount; i++)
+        {
             move(dx, dy, hx, hy, tx, ty, tail_visited);
         }
     }

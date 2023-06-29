@@ -34,15 +34,4 @@ int main()
         }
     }
 
-//    for(int i = 14; i < info.size(); i++) {
-//        std::unordered_set<char> s;
-//        for(int j = i - 14; j < i; j++) {
-//            s.insert(info[j]);
-//        }
-//        if(s.size() == 14) {
-//            std::cout << i << '\n';
-//            break;
-//        }
-//    }
-
 }
